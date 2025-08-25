@@ -10,7 +10,7 @@ import OperatorProfile from "./pages/OperatorProfile";
 import GasCuttingDetails from "./pages/GasCuttingDetails";
 import ShotBlastingDetails from "./pages/ShotBlastingDetails";
 import FitUpDetails from "./pages/FitUpDetails";
-import FitBottomDetails from "./pages/fitBottomdetails";
+import FitBottomDetails from "./pages/FitBottomDetails";
 import FlangeStraightening from "./pages/FlangeStraightening";
 
 const queryClient = new QueryClient();

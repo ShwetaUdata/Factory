@@ -9,6 +9,9 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  // 👇 Add this for GitHub Pages
+  base: "/Factory/", // <-- replace Factory with your repo name
+
   plugins: [
     react(),
     mode === 'development' &&
