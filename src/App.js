@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import ProductionDetails from "./pages/ProductionDetails";
+import OperatorProfile from "./pages/OperatorProfile";
+import GasCuttingDetails from "./pages/GasCuttingDetails";
+import ShotBlastingDetails from "./pages/ShotBlastingDetails";
+import FitUpDetails from "./pages/FitUpDetails";
+import FitBottomDetails from "./pages/fitBottomdetails";
+import FlangeStraightening from "./pages/FlangeStraightening";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/gas-cutting-gp-31" element={<GasCuttingDetails />} />
+          <Route path="/shot-blasting" element={<ShotBlastingDetails />} />         
+          <Route path="/fit-up-welding-top-details" element={<FitUpDetails />} />
+          <Route path="/fit-up-welding-bottom-details" element={<FitBottomDetails />} />
+          <Route path="/flange-straightening" element={<FlangeStraightening />} />
+          <Route path="/production/:id" element={<ProductionDetails />} />
+
+  <Route path="/operator/:name" element={<OperatorProfile />} />
+          <Route path="/production/fit-up-welding" element={<ProductionDetails />} />
+          <Route path="/production/fit-up-welding-top" element={<ProductionDetails />} />
+          <Route path="/production/fit-up-welding-bottom" element={<ProductionDetails />} />
+          <Route path="/production/flange-straightening" element={<ProductionDetails />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;
