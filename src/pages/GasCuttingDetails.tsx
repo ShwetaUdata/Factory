@@ -218,7 +218,7 @@ export default function GasCuttingDetails() {
               <div>
                 <div className="flex items-center gap-3">
                   <h1 className="text-2xl font-bold text-white">Gas cutting: GP-31</h1>
-                  <Link to="/operator/aditya">
+                  <Link to="/operator-productivity">
                     <Badge className="bg-blue-600 text-white text-sm px-3 py-1 cursor-pointer hover:bg-blue-700 transition-colors">
                         Operator: Aditya
                     </Badge>
@@ -458,12 +458,12 @@ export default function GasCuttingDetails() {
                 </div>
 
                 {/* Chart area */}
-                <div className="ml-8 h-full flex items-end justify-between gap-1 pb-5 pt-4">
+                <div className="ml-12 h-full flex items-end justify-between gap-1 pb-3 pt-1 w-8">
                   {hourlySpeedData.map((item, index) => (
-                  <div key={index} className="flex flex-col justify-end items-center flex-1 relative h-full">
+                  <div key={index} className="flex flex-col justify-end items-center flex-1 relative h-full ">
                     {/* Bar */}
                     <div
-                      className={`w-full ${getPeriodColor(item.period)} rounded-t cursor-pointer`}
+                      className={`w-5 ${getPeriodColor(item.period)} rounded-t cursor-pointer`}
                       style={{ height: `${(item.speed / 250) * 100}%`, minHeight: "2px" }}
                       onMouseEnter={(e) => { setHoveredBar(index); setBarMousePos({ x: e.clientX, y: e.clientY }) }}
                       onMouseLeave={() => setHoveredBar(null)}

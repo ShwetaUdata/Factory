@@ -12,6 +12,7 @@ import ShotBlastingDetails from "./pages/ShotBlastingDetails";
 import FitUpDetails from "./pages/FitUpDetails";
 import FitBottomDetails from "./pages/FitBottomDetails";
 import FlangeStraightening from "./pages/FlangeStraightening";
+import OperatorProductivity from "./pages/OperatorProductivity";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/production/:id" element={<ProductionDetails />} />
 
   <Route path="/operator/:name" element={<OperatorProfile />} />
+          <Route path="/operator-productivity" element={<OperatorProductivity />} />
           <Route path="/production/fit-up-welding" element={<ProductionDetails />} />
           <Route path="/production/fit-up-welding-top" element={<ProductionDetails />} />
           <Route path="/production/fit-up-welding-bottom" element={<ProductionDetails />} />

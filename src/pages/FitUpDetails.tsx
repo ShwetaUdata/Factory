@@ -457,7 +457,7 @@ export default function GasCuttingDetails() {
                 </div>
 
                 {/* Chart area */}
-                <div className="ml-8 h-full flex items-end justify-between gap-1 pb-5 pt-4">
+                <div className="ml-12 h-full flex items-end justify-between gap-1 pb-3 pt-1 w-8">
                   {hourlySpeedData.map((item, index) => (
                   <div key={index} className="flex flex-col justify-end items-center flex-1 relative h-full">
                     {/* Bar */}

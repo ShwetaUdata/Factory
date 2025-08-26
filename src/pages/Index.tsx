@@ -175,7 +175,7 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <DashboardHeader />
       
-      <main className="max-w-[1900px] mx-auto p-4 space-y-6">
+      <main className="max-w-[1800px] mx-auto p-4 space-y-7">
         {productionData.map((line) => (
           <ProductionLine key={line.id} data={line} />
         ))}

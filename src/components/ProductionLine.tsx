@@ -478,7 +478,7 @@ export const ProductionLine = ({ data }: ProductionLineProps) => {
           </Link>
         </div>
         <button className="p-2 hover:bg-muted rounded-md transition-all duration-200 hover:scale-110 hover:shadow-md">
-          <MoreVertical className="w-4 h-4 text-muted-foreground hover:text-foreground transition-colors duration-200" />
+          <MoreVertical className="w-4 h-2 text-muted-foreground hover:text-foreground transition-colors duration-200" />
         </button>
       </div>
 
@@ -490,14 +490,14 @@ export const ProductionLine = ({ data }: ProductionLineProps) => {
             <img
               src={data.image || "/placeholder.svg"}
               alt={data.title}
-              className="w-full h-80 object-cover rounded-lg bg-muted transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl cursor-pointer"
+              className="h-64 w-full object-cover rounded-lg cursor-pointer"
             />
           </Link>
         </div>
 
         {/* Production Metrics */}
         <Link to={routePath} className="lg:col-span-1">
-          <Card className="bg-card border-border transition-all duration-300 hover:shadow-lg hover:scale-[1.01] hover:border-primary/50 h-full cursor-pointer">
+          <Card className="h-64 w-full object-cover rounded-lg cursor-pointer">
             <CardHeader className="pb-3">
               <div className="flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-success" />
@@ -516,7 +516,7 @@ export const ProductionLine = ({ data }: ProductionLineProps) => {
                     <span className="text-sm text-muted-foreground">MPM</span>
                     <span className="text-xs text-muted-foreground">/ {data.production.targetSpeed} target</span>
                   </div>
-                  <Progress value={data.production.targetPercentage} className="h-1 mb-10 [&>div]:bg-primary" />
+                  <Progress value={data.production.targetPercentage} className="h-1 mb-2 [&>div]:bg-primary" />
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-muted-foreground">{data.production.lineSpeed} MPM Line Speed</div>
@@ -552,7 +552,7 @@ export const ProductionLine = ({ data }: ProductionLineProps) => {
 
         {/* Voltage */}
         <Link to={routePath} className="lg:col-span-1">
-          <Card className="bg-card border-border transition-all duration-300 hover:shadow-lg hover:scale-[1.01] hover:border-voltage/50 h-full cursor-pointer">
+          <Card className="h-64 w-full object-cover rounded-lg cursor-pointer">
             <CardHeader className="pb-3">
               <div className="flex items-center gap-2">
                 <Zap className="w-4 h-4 text-voltage" />
@@ -566,11 +566,11 @@ export const ProductionLine = ({ data }: ProductionLineProps) => {
                   <div className="text-xs text-muted-foreground">({data.voltage.timestamp})</div>
                 </div>
               </div>
-              <div className="mt-4 h-48 relative">
+              <div className="mt-0 h-[142px] ">
                 <MetricChart
                   data={data.voltage.data}
                   color="voltage"
-                  height={192}
+                  height={100}
                   title={data.title}
                   value={`${data.voltage.value}V`}
                   timestamp={data.voltage.timestamp}
@@ -582,26 +582,26 @@ export const ProductionLine = ({ data }: ProductionLineProps) => {
 
         {/* Current & Power */}
         <Link to={routePath} className="lg:col-span-1">
-          <Card className="bg-card border-border transition-all duration-300 hover:shadow-lg hover:scale-[1.01] hover:border-power/50 h-full cursor-pointer">
+          <Card className="h-64 w-full object-cover rounded-lg cursor-pointer">
             <CardHeader className="pb-3">
-              <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-power" />
-                <CardTitle className="text-sm text-card-foreground">{data.title} - Current & Power</CardTitle>
+              <div className="flex items-center gap-2 ">
+                <Zap className="w-4 h-4 text-power relative top-[-5px] left-0" />
+                <CardTitle className="text-sm text-card-foreground relative top-[-5px] left-0">{data.title} - Current & Power</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="relative">
-              <div className="space-y-2">
-                <div className="flex items-baseline gap-4">
+              <div className="space-y-2 ">
+                <div className="flex items-baseline gap-4 relative top-[-9px] left-0">
                   <div className="text-xl font-bold text-orange-500">{data.power.current}A</div>
                   <div className="text-xl font-bold text-purple-500">{data.power.watts}W</div>
                 </div>
-                <div className="text-xs text-muted-foreground">({data.power.timestamp})</div>
+                <div className="text-xs text-muted-foreground relative top-[-15px] left-0">({data.power.timestamp})</div>
               </div>
-              <div className="mt-4 h-48 relative">
+              <div className="mt-0 h-[122px] ">
                 <MetricChart
                   data={data.power.data}
                   color="power"
-                  height={192}
+                  height={80}
                   title={data.title}
                   value={`${data.power.current}A / ${data.power.watts}W`}
                   timestamp={data.power.timestamp}
