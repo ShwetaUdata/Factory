@@ -543,56 +543,39 @@ export default function GasCuttingDetails() {
           </Card>
 
           {/* Plate Status */}
-          <Card className={`p-6 transition-all duration-300 hover:shadow-lg ${className}`}>
-      <div className="space-y-4">
-        <div>
-          <h3 className="text-lg font-semibold">Plate Status</h3>
-          <p className="text-sm text-muted-foreground">Current plate inspection status</p>
-        </div>
-        
-        <div className="space-y-3">
-          <div className="grid grid-cols-2 gap-4 pb-3 border-b border-border text-sm font-medium text-muted-foreground">
-            <div>Plate ID</div>
-            <div>Status</div>
-          </div>
-          
-          {plateData.map((plate, index) => (
-            <Tooltip
-              key={index}
-              content={
-                <div>
-                  <div className="font-semibold">Plate: {plate.id}</div>
-                  <div>Status: {plate.status.replace('-', ' ')}</div>
-                  <div className="text-xs text-muted-foreground">Last updated: {plate.timestamp}</div>
+         <Card className="bg-slate-800 border-slate-700">
+            <CardHeader>
+              <CardTitle className="text-lg text-white">Plate Status</CardTitle>
+              <p className="text-sm text-slate-400">Current plate inspection status</p>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm font-medium border-b border-slate-700 pb-2 text-slate-300">
+                  <span>Plate ID</span>
+                  <span>Status</span>
                 </div>
-              }
-            >
-              <div className="grid grid-cols-2 gap-4 items-center py-2 hover:bg-muted/50 rounded-md px-2 -mx-2 transition-all duration-200 cursor-pointer">
-                <div className="font-mono text-sm hover:text-primary transition-colors duration-200">
-                  {plate.id}
-                </div>
-                <div>{getStatusBadge(plate.status)}</div>
+                {plateStatus.map((plate, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-between items-center hover:bg-slate-700 p-2 rounded transition-colors"
+                  >
+                    <span className="text-sm font-mono text-slate-300">{plate.id}</span>
+                    {getPlateStatusBadge(plate.status)}
+                  </div>
+                ))}
               </div>
-            </Tooltip>
-          ))}
-        </div>
-        
-        <div className="flex justify-between pt-4 border-t border-border">
-          <Tooltip content="Total number of plates in the system">
-            <div className="text-center hover:scale-105 transition-transform duration-200 cursor-pointer">
-              <div className="text-2xl font-bold text-metric-primary">4</div>
-              <div className="text-xs text-muted-foreground">Total Plates</div>
-            </div>
-          </Tooltip>
-          <Tooltip content="Plates currently being processed">
-            <div className="text-center hover:scale-105 transition-transform duration-200 cursor-pointer">
-              <div className="text-2xl font-bold text-status-progress">1</div>
-              <div className="text-xs text-muted-foreground">In Progress</div>
-            </div>
-          </Tooltip>
-        </div>
-      </div>
-    </Card>
+              <div className="flex justify-between items-center mt-6 pt-4 border-t border-slate-700">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">4</div>
+                  <div className="text-xs text-slate-400">Total Plates</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-400">1</div>
+                  <div className="text-xs text-slate-400">In Progress</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
