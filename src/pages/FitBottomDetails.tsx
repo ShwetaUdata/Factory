@@ -543,7 +543,7 @@ export default function GasCuttingDetails() {
           </Card>
 
           {/* Plate Status */}
-          <Card className="bg-slate-800 border-slate-700">
+         <Card className="bg-slate-800 border-slate-700">
             <CardHeader>
               <CardTitle className="text-lg text-white">Plate Status</CardTitle>
               <p className="text-sm text-slate-400">Current plate inspection status</p>
